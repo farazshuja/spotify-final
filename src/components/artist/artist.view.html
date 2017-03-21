@@ -1,0 +1,10 @@
+<section class="row artist-sec">
+    <h1>{{artist.results.total}} album(s) found</h1> 
+
+    <album ng-repeat="item in artist.results.items"
+        item="item" index="{{$index}}"></album>     
+    <div class="clear"></div>   
+    <div ng-if="artist.hasMoreRecords()" class="text-center">
+        <button ng-click="artist.loadNewResults()" class="btn btn-sm btn-success">Load More</button>
+    </div>    
+</section>

@@ -1,0 +1,31 @@
+<form name="homeForm" novalidate>
+    <div class="main-search col-xs-12">        
+        <input 
+            type="text" 
+            class="input-lg form-control" 
+            ng-model="home.search"
+            placeholder="Search Artist or Album" required>
+    </div>
+    <div class="text-center button-row">
+        <button type="submit" 
+            ng-click="home.searchIt()"
+            ng-disabled="homeForm.$invalid"
+            class="btn btn-lg btn-primary">SEARCH</button>
+    </div>
+</form>
+<section class="row">    
+    <div ng-if="home.results.items.length > 0" class="alert alert-success" role="alert">
+        Total <strong>{{home.results.totalArtists}}</strong> Artist(s)  &amp;  <strong>{{home.results.totalAlbums}}</strong>  Album(s) found</div>
+    <album ng-repeat="item in home.results.items"
+        item="item" index="{{$index}}"></album>     
+    <div class="clear"></div> 
+    
+    <div ng-if="home.noResult" class="alert alert-danger" role="alert">
+        No Recrod found!
+    </div>
+
+    <div ng-if="home.results.hasMore" class="text-center">
+        <button ng-click="home.loadNewResults()" class="btn btn-sm btn-success">Load More</button>
+    </div>
+    
+</section>

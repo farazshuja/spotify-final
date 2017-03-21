@@ -1,0 +1,14 @@
+<div class="col-md-3" ng-class="{'clear': index%4==0}">
+    <div class="thumbnail">        
+        <img src="{{item.img.url}}" alt="{{item.name}}">        
+        <div class="caption">
+            <h3 ng-if="item.type=='album'">
+                {{item.name}}
+            </h3>
+            <h3 ng-if="item.type=='artist'">
+                <a ng-href="/#!/artist/{{item.id}}">{{item.name}}</a>
+            </h3>
+            <p>{{item.type}}</p>        
+        </div>
+    </div>
+</div>
